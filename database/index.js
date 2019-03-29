@@ -1,37 +1,38 @@
+/* eslint-disable no-console */
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
 
-mongoose.connect('mongodb://localhost/artists', {
-  useMongoClient: true
-});
+const { Schema } = mongoose;
 
+mongoose.connect('mongodb://localhost/artists', { useNewUrlParser: true });
+const collection = mongoose.connection;
+
+// Schema for database
 const artistSchema = new Schema({
   name: String,
-  header_img: String
+  header_img: String,
 });
 
-let Artist = mongoose.model('Artist', artistSchema);
+// Instantiation of mongoose model
+const Artist = mongoose.model('Artist', artistSchema);
 
-let save = artist => {
+// Model for GET
+const getArtist = (id) => {
+  return Artist.findById(id, 'name header_img -_id').exec();
+};
 
-  let newArtist = new Artist({
+// Model for POST
+const save = (artist) => {
+  const newArtist = new Artist({
     name: artist.name,
-    header_img: artist.header_img
-  })
+    header_img: artist.header_img,
+  });
 
-  newArtist.save(err => {
+  newArtist.save((err) => {
+    // eslint-disable-next-line no-unused-expressions
     err ? console.log(err) : console.log('New artist added to database')
-  })
-}
-
-let getArtist = () => {
-  return new Promise((resolve, reject) => {
-    Artist.find((err, data) => {
-      err ? reject(err) : resolve(data)
-    })
-  })
-}
+  });
+};
 
 module.exports.save = save;
 module.exports.getArtist = getArtist;
-
+module.exports.collection = collection;

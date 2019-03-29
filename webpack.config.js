@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
-  entry: __dirname + '/client/index.jsx',
+  entry: path.join(__dirname, '/client/index.jsx'),
   module: {
     rules: [
       {
@@ -19,7 +19,7 @@ module.exports = {
     ],
   },
   output: {
-    path: __dirname + '/public',
+    path: path.join(__dirname, '/public'),
     filename: 'app.js',
   }
 };
