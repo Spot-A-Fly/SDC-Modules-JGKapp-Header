@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '/../public')));
 
-// Controller for GET
+// Controller for GET by id
 app.get('/data/artist/:id', (req, res) => {
   const { id } = req.params;
 

@@ -15,7 +15,7 @@ const artistSchema = new Schema({
 // Instantiation of mongoose model
 const Artist = mongoose.model('Artist', artistSchema);
 
-// Model for GET
+// Model for GET by id
 const getArtist = (id) => {
   return Artist.findById(id, 'name header_img -_id').exec();
 };
