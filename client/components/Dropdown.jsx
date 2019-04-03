@@ -29,7 +29,7 @@ showDropdownMenu(event) {
   render() {
     return (
       <div className="dropdown">
-        <div onClick={this.showDropdownMenu}><i className="fas fa-ellipsis-h"></i></div>
+        <div data-testid="ellipsis-btn" onClick={this.showDropdownMenu}><i className="fas fa-ellipsis-h"></i></div>
 
         { this.state.displayMenu ? (
           <ul>

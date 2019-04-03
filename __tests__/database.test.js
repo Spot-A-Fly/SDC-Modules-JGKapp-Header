@@ -1,4 +1,4 @@
-const db = require('./index.js');
+const db = require('../database/index.js');
 
 describe('getArtist', () => {
 
@@ -20,6 +20,7 @@ describe('getArtist', () => {
     expect.assertions(1);
     return db.getArtist('5c9e8a06deeb8c28571e26a4').then((data) => {
       expect(data.header_img).toBe('https://images.unsplash.com/photo-1495205158103-52ffc6cb2967?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&h=720&fit=crop&ixid=eyJhcHBfaWQiOjF9');
+      db.collection.close();
     });
   });
 });
