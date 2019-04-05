@@ -16,16 +16,17 @@ test('Dropdown menu renders items only after click, disappear on document click'
   expect.assertions(5);
   const wrapper = render(<Dropdown />);
 
+
   // start radio menu item not present before button click
-  expect(wrapper.queryByText('start radio')).toBeFalsy();
+  expect(wrapper.queryByText('Start Radio')).toBeFalsy();
 
   // all menu items present after click
   fireEvent.click(wrapper.getByTestId('ellipsis-btn'));
-  expect(wrapper.getByText('start radio').tagName).toBe('LI');
-  expect(wrapper.getByText('save to your library').tagName).toBe('LI');
-  expect(wrapper.getByText('copy artist link').tagName).toBe('LI');
+  expect(wrapper.getByText('Start Radio').tagName).toBe('LI');
+  expect(wrapper.getByText('Save to Your Library').tagName).toBe('LI');
+  expect(wrapper.getByText('Copy Artist Link').tagName).toBe('LI');
 
   // menu items disappear after outside click
   fireEvent.click(wrapper.getByTestId('ellipsis-btn'));
-  expect(wrapper.queryByText('start radio')).toBeFalsy();
+  expect(wrapper.queryByText('Start Radio')).toBeFalsy();
 })

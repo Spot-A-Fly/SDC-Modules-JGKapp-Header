@@ -22,7 +22,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>10/10</span>
+        <span class='fraction'>16/16</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>10/10</span>
+        <span class='fraction'>16/16</span>
       </div>
     </div>
     <p class="quiet">
@@ -96,23 +96,28 @@
 <a name='L48'></a><a href='#L48'>48</a>
 <a name='L49'></a><a href='#L49'>49</a>
 <a name='L50'></a><a href='#L50'>50</a>
-<a name='L51'></a><a href='#L51'>51</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -124,6 +129,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -134,63 +148,52 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, {Component} from 'react';
+import DropdownMenu from './DropdownMenu.jsx';
 &nbsp;
-class Dropdown extends React.Component {
+class Dropdown extends Component {
   constructor(props) {
     super(props)
 &nbsp;
     this.state = {
       displayMenu: false,
+      menuPosition: { top: 0, left: 0 },
     };
 &nbsp;
- this.showDropdownMenu = this.showDropdownMenu.bind(this);
- this.hideDropdownMenu = this.hideDropdownMenu.bind(this);
+    // this.handleClick = this.handleClick.bind(this);
+    this.showDropdownMenu = this.showDropdownMenu.bind(this);
+    this.hideDropdownMenu = this.hideDropdownMenu.bind(this);
+  }
 &nbsp;
-};
+  showDropdownMenu(event) {
+    event.preventDefault();
+    const newPosition = { left: event.clientX, top: event.clientY };
 &nbsp;
-showDropdownMenu(event) {
-  event.preventDefault();
-  this.setState({ displayMenu: true }, () =&gt; {
-    document.addEventListener('click', this.hideDropdownMenu);
-  });
- }
+    this.setState({ displayMenu: true, menuPosition: newPosition }, () =&gt; {
+      document.addEventListener('click', this.hideDropdownMenu);
+    });
+   }
 &nbsp;
- hideDropdownMenu() {
+  hideDropdownMenu() {
   this.setState({ displayMenu: false }, () =&gt; {
     document.removeEventListener('click', this.hideDropdownMenu);
   });
- }
+  }
 &nbsp;
   render() {
+&nbsp;
+    let menu;
+    if (this.state.displayMenu) {
+      console.log('showing menu');
+      menu = &lt;DropdownMenu pos={this.state.menuPosition} /&gt;;
+    } else {
+      console.log('not showing menu');
+      menu = &lt;div /&gt;;
+    }
     return (
       &lt;div className="dropdown"&gt;
         &lt;div data-testid="ellipsis-btn" onClick={this.showDropdownMenu}&gt;&lt;i className="fas fa-ellipsis-h"&gt;&lt;/i&gt;&lt;/div&gt;
-&nbsp;
-        { this.state.displayMenu ? (
-          &lt;ul&gt;
-            &lt;li&gt;start radio&lt;/li&gt;
-            &lt;li&gt;save to your library&lt;/li&gt;
-            &lt;li&gt;copy artist link&lt;/li&gt;
-          &lt;/ul&gt;
-        ):
-        (
-          null
-        )
-        }
-&nbsp;
+        {menu}
       &lt;/div&gt;
     )
   }
@@ -202,7 +205,7 @@ export default Dropdown;</pre></td></tr>
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Apr 03 2019 15:28:59 GMT-0600 (Mountain Daylight Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Apr 05 2019 10:59:51 GMT-0600 (Mountain Daylight Time)
 </div>
 </div>
 <script src="../../prettify.js"></script>

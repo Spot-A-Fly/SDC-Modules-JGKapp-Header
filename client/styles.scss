@@ -77,20 +77,33 @@
 .dropdown {
   display: flex;
   color: #FFFFFF;
-  font: 11px;
+  font: 9px;
   height: 39px;
   background-color: rgba(24, 24, 24, 0.7);
   background-color: Transparent;
-  text-transform: uppercase;
-  margin-top: 16px;
+  margin-top: 25px;
   margin-bottom: 0px;
   margin-right: 15px;
   margin-left: 0px;
-  padding: 11px 44px;
+  padding: 11px 0px;
   border-width: 2px;
   border-radius: 500px;
   height: 51;
   width: 64;
+}
+
+.menu-option {
+  color: #B3B3B3;
+  margin: 0px 0px 3px 0px;
+  border-width: 125%;
+  height: 125%;
+}
+
+.menu-option:hover {
+  color: #FFF;
+  background-color: #333;
+  border-color: #333;
+
 }
 
 .fa-ellipsis-h {
@@ -145,21 +158,3 @@
   border-bottom: 3px solid #1DB954;
   opacity: 1;
 }
-
-/*
-green: rgb(29, 185, 84);
-light-black: rgb(40, 40, 40);
-
-Green button color - rgb(40, 40, 40)
-Green button size - 130x39
-Save button size - 246x39
-Save button color  -  rgba(24, 24, 24, 0.7)
-Button padding (both) - 11px 44px
-Button font size (both) - 11px
-Ellipsis - font size 24px
-Route buttons - 
-black: rgb(24, 24, 24);
-grey: rgb(170, 170, 170);
-sand: rgb(200, 200, 200);
-white: rgb(255, 255, 255);
-*/
