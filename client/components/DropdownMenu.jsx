@@ -12,13 +12,18 @@ class DropdownMenu extends Component {
 
   updatestyle() {
     this.Menu = styled.ul`
-      background-color: rgba(40, 40, 40, 0.6);
+      background-color: rgb(28, 28, 28);
       position: fixed;
       z-index: 2;
       top: ${this.props.pos.top};
       left: ${this.props.pos.left};
       list-style-type: none;
-      padding: 0px 0px;
+      padding: 5px 0px;
+      min-width: 160px;
+      background-clip: padding-box;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      outline: none;
+      border-radius: .25rem;
     `;
   }
 
