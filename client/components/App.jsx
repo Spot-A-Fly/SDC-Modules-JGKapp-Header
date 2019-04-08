@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import fetch from 'node-fetch';
 
 import Dropdown from './Dropdown.jsx';
-import '../styles.scss';
+// import '../styles.scss';
 
 class App extends React.Component {
   constructor(props) {
