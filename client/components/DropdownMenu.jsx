@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import PropTypes from 'prop-types';
 
 function DropdownMenu({ pos }) {
 
@@ -27,5 +27,12 @@ function DropdownMenu({ pos }) {
         </Menu>
     );
   }
+
+DropdownMenu.propTypes = {
+  pos: PropTypes.shape({
+    top: PropTypes.number.isRequired,
+    left: PropTypes.number.isRequired,
+  }).isRequired
+};
 
 export default DropdownMenu;

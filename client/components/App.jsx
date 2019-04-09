@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import fetch from 'node-fetch';
 
 import Dropdown from './Dropdown.jsx';
-// import '../styles.scss';
+import '../styles.scss';
 
 class App extends React.Component {
   constructor(props) {
@@ -31,7 +31,6 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    // 2
     this._isMounted = true;
     this.getArtistState('5c9e8a06deeb8c28571e26a4')
   }
@@ -64,5 +63,4 @@ class App extends React.Component {
   }
 }
 
-// ReactDOM.render(<App />, document.getElementById('app') || document.createElement('div'));
 export default App;
