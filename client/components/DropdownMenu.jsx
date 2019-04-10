@@ -2,14 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-function DropdownMenu({ pos }) {
+const DropdownMenu = ({ pos }) => {
 
     const Menu = styled.ul`
     background-color: rgb(28, 28, 28);
     position: fixed;
     z-index: 2;
-    top: ${pos.top};
-    left: ${pos.left};
+    top: ${pos.top - 15}px;
+    left: ${pos.left}px;
     list-style-type: none;
     padding: 5px 0px;
     min-width: 160px;

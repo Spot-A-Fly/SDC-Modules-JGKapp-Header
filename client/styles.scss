@@ -178,6 +178,17 @@
 }
 
 .btn-overview:hover, .btn-related-artists:hover, .btn-about:hover {
+  opacity: 0.8;
+}
+
+.btn-overview:focus, .btn-related-artists:focus, .btn-about:focus {
+  outline:0;
   border-bottom: 3px solid #1DB954;
   opacity: 1;
+}
+
+.body-component  {
+  display:flex;
+  justify-content: center;
+  font: white;
 }

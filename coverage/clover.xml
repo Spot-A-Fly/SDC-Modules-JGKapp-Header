@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1554744071337" clover="3.2.0">
-  <project timestamp="1554744071337" name="All files">
-    <metrics statements="42" coveredstatements="36" conditionals="6" coveredconditionals="2" methods="17" coveredmethods="13" elements="65" coveredelements="51" complexity="0" loc="42" ncloc="42" packages="2" files="4" classes="4"/>
+<coverage generated="1554773154513" clover="3.2.0">
+  <project timestamp="1554773154513" name="All files">
+    <metrics statements="43" coveredstatements="37" conditionals="6" coveredconditionals="2" methods="17" coveredmethods="13" elements="66" coveredelements="52" complexity="0" loc="43" ncloc="43" packages="2" files="4" classes="4"/>
     <package name="client.components">
-      <metrics statements="27" coveredstatements="24" conditionals="4" coveredconditionals="2" methods="14" coveredmethods="12"/>
+      <metrics statements="28" coveredstatements="25" conditionals="4" coveredconditionals="2" methods="14" coveredmethods="12"/>
       <file name="App.jsx" path="/Users/ian/ghrden01/ian-header-component/client/components/App.jsx">
         <metrics statements="13" coveredstatements="10" conditionals="2" coveredconditionals="0" methods="7" coveredmethods="5"/>
         <line num="11" count="1" type="stmt"/>
@@ -14,11 +14,11 @@
         <line num="25" count="0" type="stmt"/>
         <line num="27" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="28" count="0" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
         <line num="35" count="1" type="stmt"/>
-        <line num="36" count="1" type="stmt"/>
-        <line num="40" count="1" type="stmt"/>
-        <line num="44" count="1" type="stmt"/>
-        <line num="47" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
       </file>
       <file name="Dropdown.jsx" path="/Users/ian/ghrden01/ian-header-component/client/components/Dropdown.jsx">
         <metrics statements="12" coveredstatements="12" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="6"/>
@@ -36,9 +36,10 @@
         <line num="35" count="5" type="stmt"/>
       </file>
       <file name="DropdownMenu.jsx" path="/Users/ian/ghrden01/ian-header-component/client/components/DropdownMenu.jsx">
-        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="7" count="1" type="stmt"/>
         <line num="22" count="1" type="stmt"/>
+        <line num="31" count="2" type="stmt"/>
       </file>
     </package>
     <package name="database">

@@ -1,12 +1,16 @@
-import React from 'react';
+import React, {PureComponent} from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import fetch from 'node-fetch';
 
 import Dropdown from './Dropdown.jsx';
+import About from './About.jsx';
+import Overview from './Overview.jsx';
+import RelatedArtists from './RelatedArtists.jsx';
+
 import '../styles.scss';
 
-class App extends React.Component {
+class App extends PureComponent {
   constructor(props) {
     super(props)
 
@@ -43,22 +47,34 @@ class App extends React.Component {
     let divStyle = {
       backgroundImage: `url(${this.state.header_img})`
     }
-    return (
-      <div className="img-header" style={divStyle}>
-        <div className="listeners-container">2,475,356 monthly listeners</div>
-        <h1 className="title">{this.state.name}</h1>
-        <div className="btn-container-top">
-          <button className="btn-play">play</button>
-          <button className="btn-save">save to your library</button>
-          <Dropdown />
-        </div>
-        <div className="btn-container-bottom">
-          <button className="btn-overview">overview</button>
-          <button className="btn-related-artists">related artists</button>
-          <button className="btn-about">about</button>
-        </div>
-      </div>
 
+    const routing = (
+      <Router>
+        <div className="btn-container-bottom">
+          <Link to="/"><button className="btn-overview">overview</button></Link>
+          <Link to="/relatedartists"><button className="btn-related-artists">related artists</button></Link>
+          <Link to="/about"><button className="btn-about">about</button></Link>
+        </div>
+        <div className="body-component">
+          <Route exact path='/' component={Overview}/>
+          <Route path='/relatedartists' component={RelatedArtists}/>
+          <Route path='/about' component={About}/>
+        </div>
+      </Router>
+    )
+
+    return (
+        <div className="img-header" style={divStyle}>
+          <div className="listeners-container">2,475,356 monthly listeners</div>
+          <h1 className="title">{this.state.name}</h1>
+          <div className="btn-container-top">
+            <button className="btn-play">play</button>
+            <button className="btn-save">save to your library</button>
+            <Dropdown />
+          </div>
+          <div>{routing}</div>
+        </div>
+        
     )
   }
 }
