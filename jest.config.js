@@ -33,7 +33,7 @@ module.exports = {
   testPathIgnorePatterns: ['\\\\node_modules\\\\'],
 
   // This option sets the URL for the jsdom environment. It is reflected in properties such as location.href
-  testURL: 'http://localhost:3000',
+  testURL: 'http://localhost:3001',
 
   transform: {
     '^.+\\.jsx$': 'babel-jest',

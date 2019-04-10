@@ -25,7 +25,7 @@ class App extends PureComponent {
   }
 
   getArtistState(id) {
-    fetch(`http://localhost:3000/data/artist/${id}`)
+    fetch(`http://localhost:3001/data/artist/${id}`)
       .then(result => result.json())
       .then(data => {
         if (this._isMounted) {
