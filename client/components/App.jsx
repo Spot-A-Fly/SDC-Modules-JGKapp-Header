@@ -1,6 +1,8 @@
 import React, {PureComponent} from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+// import {BrowserRouter, Route, Link} from 'react-router-dom';
+
 import fetch from 'node-fetch';
 
 import Dropdown from './Dropdown.jsx';
@@ -10,7 +12,7 @@ import RelatedArtists from './RelatedArtists.jsx';
 
 import '../styles.scss';
 
-class App extends PureComponent {
+class Header extends PureComponent {
   constructor(props) {
     super(props)
 
@@ -79,4 +81,4 @@ class App extends PureComponent {
   }
 }
 
-export default App;
+export default Header;

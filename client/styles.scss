@@ -177,6 +177,10 @@
 
 }
 
+.btn-play:focus, .btn-save:focus {
+  outline: 0;
+}
+
 .btn-overview:hover, .btn-related-artists:hover, .btn-about:hover {
   opacity: 0.8;
 }
