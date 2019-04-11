@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-// import {BrowserRouter, Route, Link} from 'react-router-dom';
 
 import fetch from 'node-fetch';
 
@@ -39,7 +38,7 @@ class Header extends Component {
 
   componentDidMount() {
     this._isMounted = true;
-    this.getArtistState('5cafb139e9ff6e09624c07c5')
+    this.getArtistState('5cafb7020235ae0e36973099')
   }
 
   componentWillUnmount() {
