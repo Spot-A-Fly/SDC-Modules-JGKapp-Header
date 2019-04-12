@@ -1,13 +1,9 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-
 import fetch from 'node-fetch';
 
 import Dropdown from './Dropdown.jsx';
 import About from './About.jsx';
-import Overview from './Overview.jsx';
-import RelatedArtists from './RelatedArtists.jsx';
 
 import '../styles.scss';
 
@@ -23,6 +19,16 @@ class Header extends Component {
     }
 
     this.getArtistState = this.getArtistState.bind(this);
+    this.handleOverviewClick = this.handleOverviewClick.bind(this);
+    this.handleRelatedClick = this.handleRelatedClick.bind(this);
+  }
+
+  handleOverviewClick() {
+    window.location.hash = '#overview';
+  }
+
+  handleRelatedClick() {
+    window.location.hash = '#related';
   }
 
   getArtistState(id) {
@@ -37,6 +43,7 @@ class Header extends Component {
   }
 
   componentDidMount() {
+    console.log(this.props)
     this._isMounted = true;
     this.getArtistState('5cafb7020235ae0e36973099')
   }
@@ -49,17 +56,15 @@ class Header extends Component {
     let divStyle = {
       backgroundImage: `url(${this.state.header_img})`
     }
-
+    
     const routing = (
       <Router>
         <div className="btn-container-bottom">
-          <Link to="/"><button className="btn-overview">overview</button></Link>
-          <Link to="/relatedartists"><button className="btn-related-artists">related artists</button></Link>
+          <Link to="/#overview"><button className="btn-overview" onClick={this.handleOverviewClick}>overview</button></Link>
+          <Link to="/#related"><button className="btn-related-artists" onClick={this.handleRelatedClick}>related artists</button></Link>
           <Link to="/about"><button className="btn-about">about</button></Link>
         </div>
         <div className="body-component">
-          <Route exact path='/' component={Overview}/>
-          <Route path='/relatedartists' component={RelatedArtists}/>
           <Route path='/about' component={About}/>
         </div>
       </Router>
