@@ -1,48 +1,41 @@
-import React from 'react';
+import React, {Component} from 'react';
+import DropdownMenu from './DropdownMenu.jsx';
 
-class Dropdown extends React.Component {
+class Dropdown extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
       displayMenu: false,
+      menuPosition: { top: 0, left: 0 },
     };
 
- this.showDropdownMenu = this.showDropdownMenu.bind(this);
- this.hideDropdownMenu = this.hideDropdownMenu.bind(this);
+    this.showDropdownMenu = this.showDropdownMenu.bind(this);
+    this.hideDropdownMenu = this.hideDropdownMenu.bind(this);
+  }
 
-};
+  showDropdownMenu(event) {
+    event.preventDefault();
+    const newPosition = { left: event.clientX, top: event.clientY };
 
-showDropdownMenu(event) {
-  event.preventDefault();
-  this.setState({ displayMenu: true }, () => {
-    document.addEventListener('click', this.hideDropdownMenu);
-  });
- }
+    this.setState({ displayMenu: true, menuPosition: newPosition }, () => {
+      document.addEventListener('click', this.hideDropdownMenu);
+    });
+   }
 
- hideDropdownMenu() {
+  hideDropdownMenu() {
   this.setState({ displayMenu: false }, () => {
     document.removeEventListener('click', this.hideDropdownMenu);
   });
- }
+  }
 
   render() {
+    let { displayMenu } = this.state;
+
     return (
       <div className="dropdown">
-        <div onClick={this.showDropdownMenu}><i className="fas fa-ellipsis-h"></i></div>
-
-        { this.state.displayMenu ? (
-          <ul>
-            <li>start radio</li>
-            <li>save to your library</li>
-            <li>copy artist link</li>
-          </ul>
-        ):
-        (
-          null
-        )
-        }
-
+        <div data-testid="ellipsis-btn" onClick={this.showDropdownMenu}><i className="fas fa-ellipsis-h"></i></div>
+        { displayMenu && <DropdownMenu pos={this.state.menuPosition} />}
       </div>
     )
   }

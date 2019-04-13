@@ -6,7 +6,16 @@ module.exports = {
   clearMocks: true,
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
-  collectCoverageFrom: ['src/**/*.{js,jsx,mjs}'],
+  collectCoverageFrom: [
+    "**/*.{js,jsx}",
+    "!**/node_modules/**",
+    "!**/client/index.jsx**",
+    "!**/server/**",
+    "!**/vendor/**",
+    "!**/public/**",
+    "!**/*.config.js",
+    "!**/coverage/**"
+  ],
 
   // The directory where Jest should output its coverage files
   coverageDirectory: 'coverage',
@@ -14,11 +23,8 @@ module.exports = {
   // An array of file extensions your modules use
   moduleFileExtensions: ['js', 'json', 'jsx'],
 
-  // The paths to modules that run some code to configure or set up the testing environment before each test
-  setupFiles: ['<rootDir>/enzyme.config.js'],
-
   // The test environment that will be used for testing
-  testEnvironment: 'node',
+  testEnvironment: 'jsdom',
 
   // The glob patterns Jest uses to detect test files
   testMatch: ['**/__tests__/**/*.js?(x)', '**/?(*.)+(spec|test).js?(x)'],
@@ -27,11 +33,19 @@ module.exports = {
   testPathIgnorePatterns: ['\\\\node_modules\\\\'],
 
   // This option sets the URL for the jsdom environment. It is reflected in properties such as location.href
-  testURL: 'http://localhost:3000',
+  testURL: 'http://localhost:3001',
+
+  transform: {
+    '^.+\\.jsx$': 'babel-jest',
+    '^.+\\.js$': 'babel-jest',
+  },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   transformIgnorePatterns: ['<rootDir>/node_modules/'],
   
   // Indicates whether each individual test should be reported during the run
-  verbose: false,
+  verbose: true,
+
+  // React Testing Library setup
+  setupFilesAfterEnv: ['./rtl.setup.js'],
 };

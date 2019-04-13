@@ -1,91 +1,38 @@
 import React from 'react';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import Button from '@material-ui/core/Button';
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import Grow from '@material-ui/core/Grow';
-import Paper from '@material-ui/core/Paper';
-import Popper from '@material-ui/core/Popper';
-import MenuItem from '@material-ui/core/MenuItem';
-import MenuList from '@material-ui/core/MenuList';
-import { withStyles } from '@material-ui/core/styles';
 
-const styles = theme => ({
-  root: {
-    display: 'flex',
-  },
-  paper: {
-    marginRight: theme.spacing.unit * 2,
-  },
-});
+const DropdownMenu = ({ pos }) => {
 
-class MenuListComposition extends React.Component {
-  state = {
-    open: false,
-  };
-
-  handleToggle = () => {
-    this.setState(state => ({ open: !state.open }));
-  };
-
-  handleClose = event => {
-    if (this.anchorEl.contains(event.target)) {
-      return;
-    }
-
-    this.setState({ open: false });
-  };
-
-  render() {
-    const { classes } = this.props;
-    const { open } = this.state;
+    const Menu = styled.ul`
+    background-color: rgb(28, 28, 28);
+    position: fixed;
+    z-index: 2;
+    top: ${pos.top - 15}px;
+    left: ${pos.left}px;
+    list-style-type: none;
+    padding: 5px 0px;
+    min-width: 160px;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    outline: none;
+    border-radius: .25rem;
+  `;
 
     return (
-      <div className={classes.root}>
-        <Paper className={classes.paper}>
-          <MenuList>
-            <MenuItem>start radio</MenuItem>
-            <MenuItem>save to your library</MenuItem>
-            <MenuItem>copy artist link</MenuItem>
-          </MenuList>
-        </Paper>
-        <div>
-          <Button
-            buttonRef={node => {
-              this.anchorEl = node;
-            }}
-            aria-owns={open ? 'menu-list-grow' : undefined}
-            aria-haspopup="true"
-            onClick={this.handleToggle}
-          >
-            Toggle Menu Grow
-          </Button>
-          <Popper open={open} anchorEl={this.anchorEl} transition disablePortal>
-            {({ TransitionProps, placement }) => (
-              <Grow
-                {...TransitionProps}
-                id="menu-list-grow"
-                style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
-              >
-                <Paper>
-                  <ClickAwayListener onClickAway={this.handleClose}>
-                    <MenuList>
-                      <MenuItem onClick={this.handleClose}>start radio</MenuItem>
-                      <MenuItem onClick={this.handleClose}>save to your library</MenuItem>
-                      <MenuItem onClick={this.handleClose}>copy artist</MenuItem>
-                    </MenuList>
-                  </ClickAwayListener>
-                </Paper>
-              </Grow>
-            )}
-          </Popper>
-        </div>
-      </div>
+        <Menu className="menu-options">
+          <li className="menu-option">Start Radio</li>
+          <li className="menu-option">Save to Your Library</li>
+          <li className="menu-option">Copy Artist Link</li>
+        </Menu>
     );
   }
-}
 
-MenuListComposition.propTypes = {
-  classes: PropTypes.object.isRequired,
+DropdownMenu.propTypes = {
+  pos: PropTypes.shape({
+    top: PropTypes.number.isRequired,
+    left: PropTypes.number.isRequired,
+  }).isRequired
 };
 
-export default withStyles(styles)(MenuListComposition);
+export default DropdownMenu;

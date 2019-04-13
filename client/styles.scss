@@ -15,6 +15,11 @@
 .listeners-container {
   display: flex;
   justify-content: center;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #fff;
+  opacity: 0.6;
+  letter-spacing: .16em;
   line-height: 16px;
   padding-top: 100px;
 }
@@ -23,18 +28,20 @@
   display: flex;
   flex-direction: column;
   // background-size: auto;
-  height: 895px;
-  width: 1080px;
+  height: 360px;
+  width: auto;
 }
 
 .title {
   display: flex;
   justify-content: center;
   color:  #fff;
+  font-family: Arial, Helvetica Neue, sans-serif;
   font-size: 72px;
   margin: 0px 166px;
   line-height: 82px;
   letter-spacing: -.005em;
+  text-transform: capitalize;
 
 }
 
@@ -52,6 +59,7 @@
   padding: 11px 44px;
   border-radius: 500px;
   transition: transform .2s;
+  letter-spacing: .1em;
 }
 
 .btn-save {
@@ -67,6 +75,7 @@
   padding: 11px 44px;
   border-radius: 500px;
   transition: transform .2s;
+  letter-spacing: .1em;
 }
 
 .btn-play:hover, .btn-save:hover {
@@ -77,25 +86,52 @@
 .dropdown {
   display: flex;
   color: #FFFFFF;
-  font: 11px;
+  font: 9px;
   height: 39px;
   background-color: rgba(24, 24, 24, 0.7);
   background-color: Transparent;
-  text-transform: uppercase;
-  margin-top: 16px;
+  margin-top: 25px;
   margin-bottom: 0px;
   margin-right: 15px;
   margin-left: 0px;
-  padding: 11px 44px;
+  padding: 11px 0px;
   border-width: 2px;
   border-radius: 500px;
   height: 51;
   width: 64;
 }
 
+.menu-option {
+  color: #B3B3B3;
+  margin: 0px 0px 3px 0px;
+  border-width: 125%;
+  height: 125%;
+  width: 100%;
+  padding: 3px 20px;
+  clear: both;
+  line-height: 32px;
+  white-space: nowrap;
+  background: 0 0;
+  border: 0;
+  cursor: default;
+}
+
+.menu-option:hover {
+  color: #FFF;
+  background-color: #333;
+  border-color: #333;
+  width: auto;
+
+}
+
 .fa-ellipsis-h {
   display: flex;
   justify-content: flex-start;
+  transform: scale(1.10);
+}
+
+.fa-ellipsis-h:hover {
+  transform: scale(1.20);
 }
 
 .btn-overview {
@@ -141,25 +177,22 @@
 
 }
 
+.btn-play:focus, .btn-save:focus {
+  outline: 0;
+}
+
 .btn-overview:hover, .btn-related-artists:hover, .btn-about:hover {
+  opacity: 0.8;
+}
+
+.btn-overview:focus, .btn-related-artists:focus, .btn-about:focus {
+  outline:0;
   border-bottom: 3px solid #1DB954;
   opacity: 1;
 }
 
-/*
-green: rgb(29, 185, 84);
-light-black: rgb(40, 40, 40);
-
-Green button color - rgb(40, 40, 40)
-Green button size - 130x39
-Save button size - 246x39
-Save button color  -  rgba(24, 24, 24, 0.7)
-Button padding (both) - 11px 44px
-Button font size (both) - 11px
-Ellipsis - font size 24px
-Route buttons - 
-black: rgb(24, 24, 24);
-grey: rgb(170, 170, 170);
-sand: rgb(200, 200, 200);
-white: rgb(255, 255, 255);
-*/
+.body-component  {
+  display:flex;
+  justify-content: center;
+  font: white;
+}
