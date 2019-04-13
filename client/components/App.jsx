@@ -32,7 +32,6 @@ class Header extends Component {
   }
 
   getArtistState(id) {
-    console.log('fetching');
     fetch(`http://localhost:3001/data/artist/${id}`)
       .then(result => result.json())
       .then(data => {
@@ -43,7 +42,6 @@ class Header extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props)
     this._isMounted = true;
     this.getArtistState('5cafb7020235ae0e36973099')
   }
