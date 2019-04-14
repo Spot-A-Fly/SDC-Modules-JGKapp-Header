@@ -5,11 +5,12 @@
   "main": "server.js",
   "scripts": {
     "build": "webpack -d --watch",
-    "start": "nodemon server/server.js",
+    "start": "node server/server.js",
     "seed-database": "node server/seedData.js",
     "test": "jest --detectOpenHandles",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage --colors"
+    "test:coverage": "jest --coverage --colors",
+    "all": "npm run seed-database & npm run start"
   },
   "repository": {
     "type": "git",
