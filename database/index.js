@@ -2,8 +2,9 @@
 const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
+const MongoURI = process.env.DB_URI || 'mongodb://database/artists';
 
-mongoose.connect('mongodb://localhost/artists', { useNewUrlParser: true });
+mongoose.connect(MongoURI, { useNewUrlParser: true });
 const collection = mongoose.connection;
 
 // Schema for database
@@ -17,7 +18,14 @@ const Artist = mongoose.model('Artist', artistSchema);
 
 // Model for GET by id
 const getArtist = (id) => {
+  if (id === 'demo') {
+    return Artist.findOne({name: 'Djay Van Der Bent'});
+  }
   return Artist.findById(id, 'name header_img -_id').exec();
+};
+
+const getDemoArtist = (name) => {
+  return Artist.findOne({ name });
 };
 
 // Model for POST
@@ -35,4 +43,5 @@ const save = (artist) => {
 
 module.exports.save = save;
 module.exports.getArtist = getArtist;
+module.exports.getDemoArtist = getDemoArtist;
 module.exports.collection = collection;

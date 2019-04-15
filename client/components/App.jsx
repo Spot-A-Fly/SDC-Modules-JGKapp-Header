@@ -32,7 +32,7 @@ class Header extends Component {
   }
 
   getArtistState(id) {
-    fetch(`http://localhost:3001/data/artist/${id}`)
+      fetch(`/data/artist/${id}`)
       .then(result => result.json())
       .then(data => {
         if (this._isMounted) {
@@ -43,7 +43,7 @@ class Header extends Component {
 
   componentDidMount() {
     this._isMounted = true;
-    this.getArtistState('5cafb7020235ae0e36973099')
+    this.getArtistState('demo')
   }
 
   componentWillUnmount() {

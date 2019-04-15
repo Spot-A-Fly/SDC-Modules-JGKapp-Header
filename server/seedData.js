@@ -8,7 +8,7 @@ const generateImagePromises = () => {
   const imageWidth = 1080;
   const imageHeight = 720;
   const collectionID = 2290052;
-  const limit = 100;
+  const limit = 99;
   const promiseArr = [];
 
   for (let i = 0; i < limit; i += 1) {
@@ -21,7 +21,7 @@ const generateImagePromises = () => {
 
 // Return single promise after API call for 100 names
 const generateNamePromise = () => {
-  const nameURL = 'https://randomuser.me/api/?results=100';
+  const nameURL = 'https://randomuser.me/api/?results=99';
   return fetch(nameURL);
 };
 
@@ -31,7 +31,9 @@ const seedData = () => {
   const imagesArray = [];
   const namesArray = [];
   const seedObjectsArray = [];
-
+  const demoObj = { name: 'Djay Van Der Bent', header_img: 'https://images.unsplash.com/photo-1530521787020-1c92aaf87aa3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1360&q=80'  }
+  db.save(demoObj);
+  
   Promise.all(images)
     .then(data => data.map(element => element.url))
     .then(arr => imagesArray.push(arr.slice()))

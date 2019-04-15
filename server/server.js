@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
 const express = require('express');
 const path = require('path');
-const db = require('../database/index.js')
 const cors = require('cors');
+const db = require('../database/index.js')
 
 const app = express();
 
