@@ -2,7 +2,8 @@
 const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
-const MongoURI = process.env.DB_URI || 'mongodb://database/artists';
+// const MongoURI = process.env.DB_URI || 'mongodb://database/artists';
+const MongoURI = process.env.MONGODB_URI || 'mongodb://localhost/artists';
 
 mongoose.connect(MongoURI, { useNewUrlParser: true });
 const collection = mongoose.connection;
