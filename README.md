@@ -18,9 +18,11 @@ Install all dependencies.
 Seed MongoDB database.
 Run server.
 
-`npm install`
-`npm run seed-database`
-`npm start`
+```
+npm install
+npm run seed-database
+npm start
+```
 
 Navigate to http://localhost:3001 to visit the Spot-A-Fly header service.
 
@@ -34,11 +36,12 @@ Add additional notes about how to deploy this on a live system
 
 ## Built With
 
-* [MongoDB]
-* [Express.js]
-* [React]
-* [Node.js]
-* [Jest]
+* [MongoDB] (https://www.mongodb.com/)
+* [Express.js] (https://expressjs.com/)
+* [React] (https://reactjs.org/)
+* [Node.js] (https://nodejs.org/en/)
+* [Jest] (https://jestjs.io/)
+* [react-testing-library] (https://github.com/testing-library/react-testing-library)
 
 ## Authors
 
