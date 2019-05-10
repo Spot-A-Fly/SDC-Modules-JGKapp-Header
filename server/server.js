@@ -2,9 +2,11 @@
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
-const db = require('../database/index.js')
+const db = require('../database/index.js');
 
 const app = express();
+
+const PORT = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(express.json());
@@ -28,6 +30,4 @@ app.post('/data/artist', (req, res) => {
   res.status(201).json();
 });
 
-
-const port = 3001;
-app.listen(port, () => console.log(`listening on port ${port}`));
+app.listen(PORT, () => console.log(`listening on port ${PORT}`));
