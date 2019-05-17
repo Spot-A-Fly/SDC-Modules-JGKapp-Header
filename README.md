@@ -1,6 +1,7 @@
-# Spot-A-Fly
+# Spot-A-Fly - Header Microservice
 
 A clone of the Spotify artist page.
+![](Spotaflydemo.gif)
 
 ## Getting Started
 
@@ -36,12 +37,12 @@ Add additional notes about how to deploy this on a live system
 
 ## Built With
 
-* [MongoDB] (https://www.mongodb.com/)
-* [Express.js] (https://expressjs.com/)
-* [React] (https://reactjs.org/)
-* [Node.js] (https://nodejs.org/en/)
-* [Jest] (https://jestjs.io/)
-* [react-testing-library] (https://github.com/testing-library/react-testing-library)
+* [MongoDB](https://www.mongodb.com/)
+* [Express.js](https://expressjs.com/)
+* [React](https://reactjs.org/)
+* [Node.js](https://nodejs.org/en/)
+* [Jest](https://jestjs.io/)
+* [react-testing-library](https://github.com/testing-library/react-testing-library)
 
 ## Authors
 
