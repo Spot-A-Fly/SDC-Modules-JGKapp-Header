@@ -1,7 +1,7 @@
 # Spot-A-Fly - Header Microservice
 
 A clone of the Spotify artist page.
-![](Spotaflydemo.gif)
+![](SpotaflyDemo.gif)
 
 ## Getting Started
 
