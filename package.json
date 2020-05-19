@@ -4,7 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "build": "webpack -d --watch",
+    "build": "webpack --mode 'production'",
+    "react-dev": "webpack -d --watch",
     "start": "node server/server.js",
     "seed-database": "node server/seedData.js",
     "test": "jest --detectOpenHandles",
