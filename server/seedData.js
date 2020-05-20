@@ -31,22 +31,25 @@ const seedData = () => {
   const imagesArray = [];
   const namesArray = [];
   const seedObjectsArray = [];
-  const demoObj = { name: 'Djay Van Der Bent', header_img: 'https://images.unsplash.com/photo-1530521787020-1c92aaf87aa3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1360&q=80'  }
+  const demoObj = { name: 'Djay Van Der Bent', header_img: 'https://images.unsplash.com/photo-1530521787020-1c92aaf87aa3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1360&q=80' };
   db.save(demoObj);
-  
+
   Promise.all(images)
-    .then(data => data.map(element => element.url))
-    .then(arr => imagesArray.push(arr.slice()))
+    .then((data) => data.map((element) => element.url))
+    .then((arr) => imagesArray.push(arr.slice()))
     .then(() => generateNamePromise())
-    .then(result => result.json())
-    .then(data => data.results.map(element => `${element.name.first} ${element.name.last}`))
-    .then(arr => namesArray.push(arr.slice()))
+    .then((result) => result.json())
+    .then((data) => data.results.map((element) => `${element.name.first} ${element.name.last}`))
+    .then((arr) => namesArray.push(arr.slice()))
     .then(() => {
       for (let i = 0; i < namesArray[0].length; i += 1) {
-        seedObjectsArray.push({ name: namesArray[0][i], header_img: imagesArray[0][i] })
+        seedObjectsArray.push({
+          name: namesArray[0][i],
+          header_img: imagesArray[0][i],
+        });
       }
     })
-    .then(() => seedObjectsArray.forEach(obj => db.save(obj)))
+    .then(() => seedObjectsArray.forEach((obj) => db.save(obj)));
 };
 
 // Call function to save
