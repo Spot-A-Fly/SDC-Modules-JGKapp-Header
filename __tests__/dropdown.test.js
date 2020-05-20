@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, cleanup, fireEvent, queryByText } from 'react-testing-library';
+import { render, cleanup, fireEvent, queryByText } from '@testing-library/react';
 import Dropdown from '../client/components/Dropdown.jsx';
 import { exportAllDeclaration } from '@babel/types';
 

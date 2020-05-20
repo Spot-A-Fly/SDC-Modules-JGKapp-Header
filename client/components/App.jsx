@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import fetch from 'node-fetch';
 
@@ -7,7 +7,7 @@ import About from './About.jsx';
 
 import '../styles.scss';
 
-class Header extends Component {
+class App extends React.Component {
   constructor(props) {
     super(props)
 
@@ -52,9 +52,9 @@ class Header extends Component {
 
   render() {
     let divStyle = {
-      backgroundImage: `url(${this.state.header_img})`
-    }
-    
+      backgroundImage: `url(${this.state.header_img})`,
+    };
+
     const routing = (
       <Router>
         <div className="btn-container-bottom">
@@ -66,7 +66,7 @@ class Header extends Component {
           <Route path='/about' component={About}/>
         </div>
       </Router>
-    )
+    );
 
     return (
         <div className="img-header" style={divStyle}>
@@ -79,9 +79,9 @@ class Header extends Component {
           </div>
           <div>{routing}</div>
         </div>
-        
-    )
+
+    );
   }
 }
 
-export default Header;
+export default App;

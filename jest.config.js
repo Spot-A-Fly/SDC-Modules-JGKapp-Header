@@ -1,3 +1,4 @@
+/* eslint-disable */
 // For a detailed explanation regarding each configuration property, visit:
 // https://jestjs.io/docs/en/configuration.html
 
@@ -23,6 +24,10 @@ module.exports = {
   // An array of file extensions your modules use
   moduleFileExtensions: ['js', 'json', 'jsx'],
 
+  moduleNameMapper: {
+    "\\.(css|less)$": "identity-obj-proxy"
+  },
+
   // The test environment that will be used for testing
   testEnvironment: 'jsdom',
 
@@ -37,12 +42,12 @@ module.exports = {
 
   transform: {
     '^.+\\.jsx$': 'babel-jest',
-    '^.+\\.js$': 'babel-jest',
+    '^.+\\.js$': 'babel-jest'
   },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   transformIgnorePatterns: ['<rootDir>/node_modules/'],
-  
+
   // Indicates whether each individual test should be reported during the run
   verbose: true,
 
