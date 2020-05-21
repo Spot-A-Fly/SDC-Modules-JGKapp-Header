@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
@@ -20,14 +19,12 @@ const Artist = mongoose.model('Artist', artistSchema);
 // Model for GET by id
 const getArtist = (id) => {
   if (id === 'demo') {
-    return Artist.findOne({name: 'Djay Van Der Bent'});
+    return Artist.findOne({ name: 'Djay Van Der Bent' });
   }
   return Artist.findById(id, 'name header_img -_id').exec();
 };
 
-const getDemoArtist = (name) => {
-  return Artist.findOne({ name });
-};
+const getDemoArtist = (name) => Artist.findOne({ name });
 
 // Model for POST
 const save = (artist) => {
@@ -37,12 +34,17 @@ const save = (artist) => {
   });
 
   newArtist.save((err) => {
-    // eslint-disable-next-line no-unused-expressions
-    err ? console.log(err) : console.log('New artist added to database')
+    if (err) {
+      console.log(err);
+    } else {
+      console.log('New artist added to database');
+    }
   });
 };
 
-module.exports.save = save;
-module.exports.getArtist = getArtist;
-module.exports.getDemoArtist = getDemoArtist;
-module.exports.collection = collection;
+module.exports = {
+  save,
+  getArtist,
+  getDemoArtist,
+  collection,
+};
