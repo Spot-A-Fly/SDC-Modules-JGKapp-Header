@@ -5,28 +5,16 @@ const {
 
 // Schema for database
 const artistSchema = new Schema({
-  name: String,
-  header_img: String,
+  artistId: Number,
+  artistName: String,
+  artistImgUrl: String,
 });
 
 // Instantiation of mongoose model
 const Artist = model('Artist', artistSchema);
 
-// methods - each returns a thenable object
 module.exports = {
-  // eslint-disable-next-line camelcase
-  saveNewArtist: ({ name, header_img }) => {
-    const newArtist = new Artist({
-      name,
-      header_img,
-    });
-
-    return newArtist.save();
-  },
-
-  findArtistByName: (name) => Artist.findOne({ name }),
-
-  findArtistById: (id) => Artist.findById({ id }),
+  Artist,
 
   connectToDB: () => {
     const dbConnectionString = 'mongodb://localhost/artists';
@@ -53,6 +41,4 @@ module.exports = {
       });
     });
   },
-
-  dropDB: () => connection.dropDatabase(),
 };

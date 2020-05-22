@@ -33,21 +33,24 @@ class CsvFile {
 
 const csvFile = new CsvFile({
   path: path.join(__dirname, './artists.csv'),
-  headers: ['name', 'header_img'],
+  headers: ['artistId', 'artistName', 'artistImgUrl'],
 });
 
 // constants for imageURL
 const imageWidth = 1080;
 const imageHeight = 720;
 const collectionID = 2290052;
+// Starting value for main id after first Id for demo
+let artistId = 2;
 
 const createMany = () => {
   const rows = [];
   for (let i = 0; i < 1000000; i += 1) {
-    const name = `${faker.name.prefix()} ${faker.name.findName()} : ${faker.name.title()}`;
-    const imgURL = `https://source.unsplash.com/collection/${collectionID}/${imageWidth}x${imageHeight}/?sig=${Math.floor(Math.random() * 151)}`;
+    const artistName = `${faker.name.prefix()} ${faker.name.findName()} : ${faker.name.title()}`;
+    const artistImgUrl = `https://source.unsplash.com/collection/${collectionID}/${imageWidth}x${imageHeight}/?sig=${Math.floor(Math.random() * 151)}`;
 
-    rows.push({ name, header_img: imgURL });
+    rows.push({ artistId, artistName, artistImgUrl });
+    artistId += 1;
   }
 
   return csvFile.append(rows);
@@ -55,8 +58,9 @@ const createMany = () => {
 
 csvFile
   .create([{
-    name: 'Djay Van Der Bent',
-    header_img: 'https://images.unsplash.com/photo-1530521787020-1c92aaf87aa3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1360&q=80',
+    artistId: 1,
+    artistName: 'Djay Van Der Bent',
+    artistImgUrl: 'https://images.unsplash.com/photo-1530521787020-1c92aaf87aa3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1360&q=80',
   }])
   .then(createMany)
   .then(createMany)
