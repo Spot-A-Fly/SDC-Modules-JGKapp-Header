@@ -38,7 +38,7 @@ Use `docker-compose up -d` to get the containers up and running. Then run `docke
 
 ## Built With
 
-* [PostgreSQL](https://www.mongodb.com/)
+* [PostgreSQL](https://www.postgresql.org/)
 * [Express.js](https://expressjs.com/)
 * [React](https://reactjs.org/)
 * [Node.js](https://nodejs.org/en/)
