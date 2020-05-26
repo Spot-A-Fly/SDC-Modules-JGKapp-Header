@@ -1,9 +1,11 @@
-import React, {Component} from 'react';
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+import React from 'react';
 import DropdownMenu from './DropdownMenu.jsx';
 
-class Dropdown extends Component {
+class Dropdown extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       displayMenu: false,
@@ -21,23 +23,25 @@ class Dropdown extends Component {
     this.setState({ displayMenu: true, menuPosition: newPosition }, () => {
       document.addEventListener('click', this.hideDropdownMenu);
     });
-   }
+  }
 
   hideDropdownMenu() {
-  this.setState({ displayMenu: false }, () => {
-    document.removeEventListener('click', this.hideDropdownMenu);
-  });
+    this.setState({ displayMenu: false }, () => {
+      document.removeEventListener('click', this.hideDropdownMenu);
+    });
   }
 
   render() {
-    let { displayMenu } = this.state;
+    const { displayMenu, menuPosition } = this.state;
 
     return (
       <div className="dropdown">
-        <div data-testid="ellipsis-btn" onClick={this.showDropdownMenu}><i className="fas fa-ellipsis-h"></i></div>
-        { displayMenu && <DropdownMenu pos={this.state.menuPosition} />}
+        <div data-testid="ellipsis-btn" onClick={this.showDropdownMenu}>
+          <i className="fas fa-ellipsis-h" />
+        </div>
+        { displayMenu && <DropdownMenu pos={menuPosition} />}
       </div>
-    )
+    );
   }
 }
 
