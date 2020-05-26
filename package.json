@@ -7,15 +7,15 @@
     "build": "webpack --mode 'production'",
     "react-dev": "webpack -d --watch",
     "start": "node server/server.js",
-    "seed-database": "node server/seedData.js",
+    "server-dev": "nodemon server/server.js",
+    "seed-db": "node database-seeding/createCSV.js && node database-seeding/seed-pgDB.js",
     "test": "jest --detectOpenHandles",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage --colors",
-    "all": "npm run seed-database && npm run build && npm start"
+    "test:coverage": "jest --coverage --colors"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/juicy-fec/ian-header-component.git"
+    "url": "git+https://github.com/Spot-A-Fly/SDC-Modules-JGKapp-Header"
   },
   "keywords": [],
   "author": "",
@@ -23,7 +23,7 @@
   "bugs": {
     "url": "https://github.com/juicy-fec/ian-header-component/issues"
   },
-  "homepage": "https://github.com/juicy-fec/ian-header-component#readme",
+  "homepage": "https://github.com/Spot-A-Fly/SDC-Modules-JGKapp-Header#readme",
   "dependencies": {
     "@fast-csv/format": "^4.2.0",
     "@testing-library/jest-dom": "^5.8.0",
