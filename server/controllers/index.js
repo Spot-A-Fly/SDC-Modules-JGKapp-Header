@@ -34,7 +34,14 @@ module.exports = {
   addNewArtist: (req, res) => {
     const { artistName, artistImgUrl } = req.body;
     if (artistName !== undefined && artistImgUrl !== undefined) {
-      model.addNewArtist(artistName, artistImgUrl);
+      model.addNewArtist(artistName, artistImgUrl)
+        .then(() => res.status(200).json({
+          message: 'Successfully added new artist',
+        }))
+        .catch((err) => res.status(400).json({
+          message: 'Failed to add new artist',
+          error: err,
+        }));
     } else {
       res.status(400).json({
         message: 'Bad request - must include artistName and artistImgUrl',
