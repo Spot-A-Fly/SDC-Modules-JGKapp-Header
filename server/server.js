@@ -4,10 +4,11 @@ const path = require('path');
 const cors = require('cors');
 const morgan = require('morgan');
 const artistRouter = require('./router/index.js');
+const config = require('../config.js');
 
 const app = express();
 
-const PORT = process.env.PORT || 3001;
+const PORT = config.app.port;
 
 app.use(cors());
 app.use(morgan('dev'));
