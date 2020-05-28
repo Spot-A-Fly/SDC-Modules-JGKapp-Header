@@ -1,0 +1,24 @@
+config:
+  target: "http://localhost:3001"
+  phases:
+    - duration: 30
+      arrivalRate: 10
+      name: "Warm up the application"
+    - duration: 15
+      arrivalRate: 20
+      name: "High load"
+    - duration: 15
+      arrivalRate: 10
+      name: "Cool down"
+  processor: "./stress-test-functions.js"
+scenarios:
+  - flow:
+      - get:
+          url: "/"
+      - get:
+          url: "/bundle.js"
+      - loop:
+        - function: "getRandomId"
+        - get:
+            url: "/data/artist?artistId={{ id }}"
+        count: 50
