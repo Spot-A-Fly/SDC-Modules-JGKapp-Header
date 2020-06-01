@@ -9,6 +9,7 @@
     "start": "node server/server.js",
     "server-dev": "nodemon server/server.js",
     "seed-db": "node database-seeding/createCSV.js && node database-seeding/seed-pgDB.js",
+    "seed-db:import-only": "node database-seeding/seed-pgDB.js",
     "test": "jest --detectOpenHandles",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage --colors",
