@@ -2,3 +2,5 @@ node_modules
 bundle.js
 *.csv
 .env
+redis-tests.js
+newrelic_agent.log
