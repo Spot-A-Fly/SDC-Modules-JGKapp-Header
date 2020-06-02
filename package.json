@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "build": "webpack --mode 'production'",
+    "build": "webpack -p",
     "react-dev": "webpack -d --watch",
     "start": "node server/server.js",
     "server-dev": "nodemon server/server.js",

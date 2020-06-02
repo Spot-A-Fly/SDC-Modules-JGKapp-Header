@@ -13,6 +13,10 @@ const dev = {
     user: process.env.USER,
     password: null,
   },
+  cache: {
+    port: 6379,
+    host: 'localhost',
+  },
 };
 
 // Unused environment at moment
@@ -37,6 +41,10 @@ const prod = {
     database: process.env.TEST_DB_NAME || 'artists',
     user: process.env.PGUSER,
     password: process.env.PG_AWS_PASSWORD,
+  },
+  cache: {
+    port: 6379,
+    host: 'cache',
   },
 };
 
