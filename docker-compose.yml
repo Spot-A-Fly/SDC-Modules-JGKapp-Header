@@ -4,11 +4,12 @@ services:
   client:
     build: .
     depends_on:
-      - 'database'
+      - 'cache'
     ports:
-      - '3001:3001'
-  
-  database:
-    image: mongo:latest
-  
-  
+      - '3000:3000'
+    environment:
+      - NODE_ENV=prod
+
+  cache:
+    image: redis
+

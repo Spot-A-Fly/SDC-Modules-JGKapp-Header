@@ -14,7 +14,7 @@ const createArtistsTable = () => {
 };
 
 const seedDatabase = () => {
-  const pathToCSV = path.resolve(__dirname, './artists.csv');
+  const pathToCSV = process.env.NODE_ENV === 'prod' ? '/home/bitnami/SDC-files/artists.csv' : path.resolve(__dirname, './artists.csv');
   const delimiter = ',';
   const sqlString = `COPY artists(artist_name, artist_img_url) FROM '${pathToCSV}' DELIMITER '${delimiter}' CSV HEADER`;
   return db.query(sqlString);

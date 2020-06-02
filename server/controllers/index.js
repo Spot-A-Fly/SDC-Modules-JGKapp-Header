@@ -1,3 +1,4 @@
+const cache = require('../cache/index.js');
 const model = require('../models/index.js');
 
 module.exports = {
@@ -11,30 +12,64 @@ module.exports = {
     } else {
       let modelFunction = '';
       let param = '';
+      let cacheKey = '';
       if (artistName !== undefined) {
         modelFunction = model.getArtistByName;
         param = artistName;
+        cacheKey = `artistName=${artistName}`;
       } else if (artistId !== undefined) {
         modelFunction = model.getArtistById;
         param = artistId;
+        cacheKey = `artistId=${artistId}`;
       }
 
-      modelFunction(param)
-        .then((artist) => res.status(200).json({
-          message: 'Successfully retrieved artist',
-          artist: artist.rows,
-        }))
-        .catch((err) => res.status(400).json({
-          message: 'Failed to find artist',
-          error: err,
-        }));
+      // With Cache
+      cache.retrieveFromCache(cacheKey)
+        .then((results) => {
+          if (results) {
+            res.status(200).json(results);
+          } else {
+            modelFunction(param)
+              .then((artist) => {
+                const messageObj = {
+                  message: 'Successfully retrieved artist',
+                  artist: artist.rows,
+                };
+                res.status(200).json(messageObj);
+                return messageObj;
+              })
+              .then((value) => cache.addToCache(cacheKey, value))
+              .catch((err) => res.status(400).json({
+                message: 'Failed to find artist',
+                error: err,
+              }));
+          }
+        });
+
+      // Without Cache
+      // modelFunction(param)
+      //   .then((artist) => res.status(200).json({
+      //     message: 'Successfully retrieved artist',
+      //     artist: artist.rows,
+      //   }))
+      //   .catch((err) => res.status(400).json({
+      //     message: 'Failed to find artist',
+      //     error: err,
+      //   }));
     }
   },
 
   addNewArtist: (req, res) => {
     const { artistName, artistImgUrl } = req.body;
     if (artistName !== undefined && artistImgUrl !== undefined) {
-      model.addNewArtist(artistName, artistImgUrl);
+      model.addNewArtist(artistName, artistImgUrl)
+        .then(() => res.status(200).json({
+          message: 'Successfully added new artist',
+        }))
+        .catch((err) => res.status(400).json({
+          message: 'Failed to add new artist',
+          error: err,
+        }));
     } else {
       res.status(400).json({
         message: 'Bad request - must include artistName and artistImgUrl',
