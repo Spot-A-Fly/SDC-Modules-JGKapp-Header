@@ -4,3 +4,4 @@ bundle.js
 .env
 redis-tests.js
 newrelic_agent.log
+*.txt
