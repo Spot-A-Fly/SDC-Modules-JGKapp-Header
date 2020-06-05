@@ -8,3 +8,5 @@ babel.config.js
 rtl.setup.js
 bundle.js
 /database-seeding
+.env
+.git

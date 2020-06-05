@@ -19,18 +19,6 @@ const dev = {
   },
 };
 
-// Unused environment at moment
-// const test = {
-//   app: {
-//     port: parseInt(process.env.TEST_APP_PORT, 10) || 3000,
-//   },
-//   db: {
-//     host: process.env.TEST_DB_HOST || 'localhost',
-//     port: parseInt(process.env.TEST_DB_PORT, 10) || 5432,
-//     name: process.env.TEST_DB_NAME || 'test',
-//   },
-// };
-
 const prod = {
   app: {
     port: parseInt(process.env.PROD_APP_PORT, 10) || 3000,

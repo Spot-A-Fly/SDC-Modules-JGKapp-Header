@@ -13,7 +13,8 @@
     "test": "jest --detectOpenHandles",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage --colors",
-    "stress-test": "artillery run stress-test.yml"
+    "stress-test": "artillery run stress-test.yml",
+    "stress-test:aws": "artillery run stress-test-aws.yml"
   },
   "repository": {
     "type": "git",
